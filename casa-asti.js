@@ -1,0 +1,22 @@
+module.exports = {
+  '1/0/2': 'Lampadario tavolo',
+  '1/0/1': 'Faretti ingresso',
+  '1/0/8': 'Faretti tv',
+  '1/0/3': 'Faretti cucina',
+  '1/0/4': 'Luci scala',
+  '1/0/7': 'Luci sala',
+  '1/0/12': 'Faretti anticamera notte',
+  '1/0/18': 'Camera Mattia',
+  '1/0/13': 'Luce bagno',
+  '1/0/14': 'Luce bagno specchio',
+  '1/0/15': 'Camera Mariarosa',
+  '1/0/9': 'Luce lavanderia',
+  '1/0/11': 'Luce bagnetto',
+  '1/0/10': 'Luce box',
+  '1/0/6': 'Luce soppalco cassettiera',
+  '1/0/5': 'Luce soppalco scrivania',
+  // "2/0/8": "Tapparella soppalco?",
+  // "2/0/18": "Tapparella soppalco?",
+  // "2/0/9": "Tapparella soppalco?",
+  // "2/0/19": "Tapparella soppalco?"
+};

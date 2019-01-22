@@ -1,0 +1,48 @@
+[
+  {
+    "roomName": "Soggiorno e cucina",
+    "roomId": 0,
+    "devices": [
+      { "deviceId": "1/0/2", "deviceName": "Lampadario tavolo" },
+      { "deviceId": "1/0/1", "deviceName": "Faretti ingresso" },
+      { "deviceId": "1/0/8", "deviceName": "Faretti tv" },
+      { "deviceId": "1/0/3", "deviceName": "Faretti cucina" },
+      { "deviceId": "1/0/4", "deviceName": "Luci scala" },
+      { "deviceId": "1/0/7", "deviceName": "Luci sala" }
+    ]
+  },
+  {
+    "roomName": "Bagno",
+    "roomId": 1,
+    "devices": [
+      { "deviceId": "1/0/13", "deviceName": "Luce bagno" },
+      { "deviceId": "1/0/14", "deviceName": "Luce bagno specchio" }
+    ]
+  },
+  {
+    "roomName": "Notte",
+    "roomId": 2,
+    "devices": [
+      { "deviceId": "1/0/12", "deviceName": "Faretti anticamera notte" },
+      { "deviceId": "1/0/18", "deviceName": "Camera Mattia" },
+      { "deviceId": "1/0/15", "deviceName": "Camera Mariarosa" }
+    ]
+  },
+  {
+    "roomName": "Soppalco",
+    "roomId": 3,
+    "devices": [
+      { "deviceId": "1/0/12", "deviceName": "Faretti anticamera notte" },
+      { "deviceId": "1/0/18", "deviceName": "Camera Mattia" },
+      { "deviceId": "1/0/15", "deviceName": "Camera Mariarosa" }
+    ]
+  },
+  {
+    "roomName": "Lavanderia e garage",
+    "roomId": 4,
+    "devices": [
+      { "deviceId": "1/0/6", "deviceName": "Luce soppalco cassettiera" },
+      { "deviceId": "1/0/5", "deviceName": "Luce soppalco scrivania" }
+    ]
+  }
+]
