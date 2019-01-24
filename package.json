@@ -6,13 +6,9 @@
   "engines": {
     "node": "10"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "cd casa-galgagnano && npm run build"
-    }
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd casa-galgagnano && npm run build",
     "start": "node index"
   },
   "keywords": [],
