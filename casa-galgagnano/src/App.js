@@ -1,18 +1,46 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { ActivityIndicator, View, Text, ScrollView } from 'react-native';
 import SmartSwitch from './SmartSwitch';
+import socketIOClient from "socket.io-client";
 
 const config = require('./config.json');
 
 class App extends Component {
-  state = {
-    loaded: false,
-    config: {},
+  constructor() {
+    super();
+    this.socket = socketIOClient('/');
+    this.state = {
+      config: {},
+      db: null
+    }
   }
   componentDidMount() {
     // fetch config
+    this.socket.on('load_db', (data) => {
+      const { db } = data;
+      this.setState({ db });
+    });
+
+    this.socket.on('update_db', (data) => {
+      const { db } = data;
+      this.setState({ db });
+    })
   }
+
+  updateLight = (id, value) => {
+    this.socket.emit('update_light', { id, value });
+  }
+
   render() {
+    const { db } = this.state;
+    if (!db) {
+      return (
+        <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'column'}}>
+          <Text style={{ textAlign: 'center', marginBottom: 20 }}>Connessione a locale...</Text>
+          <ActivityIndicator size="large" />
+        </View>
+      )
+    }
     return (
       <ScrollView contentContainerStyle={{ paddingVertical: 10 }}>
         {config.map(room => (
@@ -22,7 +50,12 @@ class App extends Component {
             </Text>
             {room.devices.map(device => (
               <View key={device.deviceId} style={{ paddingVertical: 5 }}>
-                <SmartSwitch name={device.deviceName} id={device.deviceId} />
+                <SmartSwitch
+                  value={db[device.deviceId].status}
+                  name={device.deviceName}
+                  id={device.deviceId}
+                  onValueChange={(val) => this.updateLight(device.deviceId, val)}
+                />
               </View>
             ))}
           </View>

@@ -88,6 +88,7 @@ const updateStatus = (id, status) => {
       status,
     };
   }
+  return db;
 }
 
 module.exports = {
