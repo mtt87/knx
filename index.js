@@ -38,6 +38,7 @@ io.on('connection', s => {
 
   socket.on('update_light', (data) => {
     const { id, value } = data;
+    connection.write(id, Number(value));
     const updatedDb = updateStatus(id, Number(value));
     socket.emit('update_db', { db: updatedDb });
   });
