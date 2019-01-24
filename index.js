@@ -1,30 +1,33 @@
 const knx = require('knx');
-const express = require('express');
-const app = express();
+const moment = require('moment-timezone');
+const server = require('./src/server');
+const database = require('./src/localDb');
 
-const { PORT = 3000 } = process.env;
+const {
+  PORT = 3000,
+  KNX_IP = '192.168.1.10',
+  KNX_PORT = 3671,
+} = process.env;
+
+const { db, updateStatus } = database;
 
 const connection = knx.Connection({
-  ipAddr: '192.168.1.10', ipPort: 3671,
+  ipAddr: KNX_IP, ipPort: KNX_PORT,
   handlers: {
     connected: startApp(),
     event: function(evt, src, dest, value) {
-      // TODO add fn() to handle events
-      const now = new Date()
-        .toISOString()
-        .replace(/T/, ' ')
-        .replace(/\..+/, '');
-      console.log({ evt, src, dest, value: JSON.stringify(value) });
+      const toUpdate = JSON.parse(JSON.stringify(value)).data[0];
+      console.log('toUpdate', toUpdate);
+      updateStatus(dest, toUpdate)
+      const now = moment().tz('Europe/Rome').format('YYYY-MM-DD HH:mm:SS');
+      console.log(now, { evt, src, dest, value: JSON.stringify(value) });
     },
   },
 });
 
-app.get('/', (req, res) => {
-
-});
-
 function startApp() {
-  app.listen(PORT, () => {
+  console.log('KNX connected');
+  server.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
   });
 }
