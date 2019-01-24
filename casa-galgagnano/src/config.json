@@ -29,20 +29,11 @@
     ]
   },
   {
-    "roomName": "Soppalco",
-    "roomId": 3,
-    "devices": [
-      { "deviceId": "1/0/12", "deviceName": "Faretti anticamera notte" },
-      { "deviceId": "1/0/18", "deviceName": "Camera Mattia" },
-      { "deviceId": "1/0/15", "deviceName": "Camera Mariarosa" }
-    ]
-  },
-  {
     "roomName": "Lavanderia e garage",
     "roomId": 4,
     "devices": [
-      { "deviceId": "1/0/6", "deviceName": "Luce soppalco cassettiera" },
-      { "deviceId": "1/0/5", "deviceName": "Luce soppalco scrivania" }
+      { "deviceId": "1/0/11", "deviceName": "Luce lavanderia bagno" },
+      { "deviceId": "1/0/9", "deviceName": "Luce lavanderia" }
     ]
   }
 ]
