@@ -6,6 +6,9 @@ const database = require('./localDb');
 const { db } = database;
 const app = express();
 
+console.log(__dirname);
+console.log(path.join(__dirname));
+
 app.use(express.static(path.join(__dirname, '../casa-galgagnano/build')));
 
 app.get('/', function (req, res) {
